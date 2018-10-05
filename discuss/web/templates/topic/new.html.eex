@@ -1,0 +1,17 @@
+<!--
+    really just calling a function
+    form_for(@changeset, topic_path(@conn, :create), fn f -> end)
+    Whenever someone submits a form use this changeset and
+    send it to this :create path from topic.
+
+    you can put any elixir code inside <% %> tags
+-->
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+        <!-- f is the anonymous func-->
+        <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    </div>
+
+    <%= submit "Save Topic", class: "btn btn-primary" %>
+<% end %>
+
